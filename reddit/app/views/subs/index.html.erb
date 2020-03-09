@@ -1,0 +1,22 @@
+<h1>All the Subs!</h1>
+<hr>
+<h3>Make a Sub!</h3>
+<form action="<%=new_sub_url%>" method="GET">
+  <input type="submit" value="Make a Sub">
+</form>
+<br>
+<ul>
+  <% @subs.each do |sub| %>
+    <label>Title: </label>
+      <%= sub.title %>
+      <br>
+    <label>Description: </label>
+      <%= sub.description %>
+      <br>
+
+    <form action="<%= edit_sub_url(sub) %>">
+      <input type="submit" value="Edit Sub">
+    </form>
+
+  <% end %>
+</ul>

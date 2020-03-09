@@ -1,0 +1,21 @@
+<h1>Edit Our Sub</h1>
+
+<form action="<%= post_url(@post) %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="title">Title: </label>
+  <input type="text" name="post[title]" id="title">
+  <br>
+  <label for="url">URL: </label>
+  <input type="text" name="post[url]" id="url">
+  <br>
+  <label for="content">Content: </label>
+  <input type="text" name="post[content]" id="content">
+  <br>
+  <label for="sub_ids">Subs: </label>
+  <% debugger %>
+  <% @post.subs.each do |sub| %>
+    <input type="checkbox" name="post[sub_ids][]" id="sub_ids">
+    <label for="sub_ids"><%= sub.title %></label>
+  <% end %>
+</form>
